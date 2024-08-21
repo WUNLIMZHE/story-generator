@@ -43,14 +43,14 @@ app.post("/", async (req, res) => {
       console.log("No joke found");
       res.render("index.ejs", { 
         joke: result.data.message,
-        type: type,
+        type: result.data.category,
         language : languages
       });
     }else{
       console.log("Joke found!");
       res.render("index.ejs", { 
         joke: result.data.joke,
-        type: type,
+        type: result.data.category,
         language : languages
       });
     }
