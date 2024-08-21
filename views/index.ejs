@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Random Joke</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Titan+One&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="styles/main.css">
+</head>
+
+<body>
+  <h1>Sharing a joke a day keeps the gloom away.</h1>
+  <div class = "container" id="selection-container">
+    <form action="/" id="form" class="form" method="POST">
+      <select name="type" class="form-select">
+        <option value="Any" data-display="Select">Random type</option>
+        <option value="Programming">Programming</option>
+        <option value="Miscellaneous">Miscellaneous</option>
+        <option value="Dark">Dark</option>
+        <option value="Pun">Pun</option>
+        <option value="Spooky">Spooky</option>
+        <option value="Christmas">Christmas</option>
+      </select>
+      <select name="languages" class="form-select">
+        <option value="en">English</option>
+        <option value="cs">Czech</option>
+        <option value="de">German</option>
+        <option value="es">Spanish</option>
+        <option value="fr">French</option>
+        <option value="pt">Portuguese</option>
+      </select>
+      <button type="submit" class="form-submit">Go</button>
+    </form>
+  </div>
+  <% if (locals.type){ %>
+    <p class="joke-info">Selected type: <%=type%> <span class="spacer"></span> Language: <%=language%></p>
+  <% } else { %>
+    <p class="joke-info">Selected type: Random type <span class="spacer"></span> Language: English</p>
+  <% } %>
+
+  <div class="card">
+    <p class="content">
+      <%= joke %>
+
+      <%if (locals.error){%>
+        <%= error %>
+      <% } %>
+    </p>
+  </div>
+  
+  <p class="instruction">
+    Hover on the picture to reveal a random joke.
+  </p>
+
+  <%- include ('partials/footer') %>
+</body>
+
+</html>
