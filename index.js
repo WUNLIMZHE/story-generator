@@ -10,18 +10,32 @@ const port = 3000;
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 
-const API_URL = "https://v2.jokeapi.dev/joke/Any?type=single";
+const API_URL = "https://v2.jokeapi.dev/joke/Any?";
 
 app.get("/", async (req, res) => {
   // TODO 3: Use axios to PUT the data from req.body to the secrets api servers.
   try {
     const result = await axios.get(API_URL);
-    console.log(result);
-    res.render("index.ejs", { 
-      joke: result.data.joke,
-      type: result.data.category,
-      language : result.data.lang
-    });
+    console.log(result.data);
+    const jokePart = result.data.type;
+    if (jokePart == "single"){
+      console.log("It's a single part joke!");
+      res.render("index.ejs", { 
+        joke: result.data.joke,
+        type: result.data.category,
+        language : result.data.lang,
+        jokePart: jokePart
+      });
+    } else if (jokePart == "twopart"){
+      console.log("It's a two parts joke!");
+      res.render("index.ejs", { 
+        setup: result.data.setup,
+        delivery: result.data.delivery,
+        type: result.data.category,
+        language : result.data.lang,
+        jokePart: jokePart
+      });
+    }
   } catch (error) {
     console.log("Error occurs");
     console.log(error.response.data);
@@ -32,27 +46,51 @@ app.get("/", async (req, res) => {
 app.post("/", async (req, res) => {
 
   try {
+    console.log("======================================")
     console.log("Request body: ", req.body);
     const type = req.body.type;
     const languages = req.body.languages;
+    const jokePart = req.body.part;
     const result = await axios.get(
-      `https://v2.jokeapi.dev/joke/${type}?lang=${languages}&type=single`
+      `https://v2.jokeapi.dev/joke/${type}?lang=${languages}&type=${jokePart}`
     );
-    console.log(result);
-    if (!result.data.joke){
+    console.log(result.data);
+    if (!result.data.joke && !result.data.delivery){
       console.log("No joke found");
       res.render("index.ejs", { 
         joke: result.data.message,
         type: result.data.category,
-        language : languages
+        language : languages,
+        jokePart: jokePart
       });
     }else{
       console.log("Joke found!");
-      res.render("index.ejs", { 
-        joke: result.data.joke,
-        type: result.data.category,
-        language : languages
-      });
+      if (jokePart == "single"){
+        console.log("It's a single part joke!");
+        res.render("index.ejs", { 
+          joke: result.data.joke,
+          type: result.data.category,
+          language : result.data.lang,
+          jokePart: jokePart
+        });
+      } else if (jokePart == "twopart"){
+        console.log("It's a two parts joke!");
+        res.render("index.ejs", { 
+          setup: result.data.setup,
+          delivery: result.data.delivery,
+          type: result.data.category,
+          language : result.data.lang,
+          jokePart: jokePart
+        });
+
+        res.render("index.ejs", { 
+          setup: result.data.setup,
+          delivery: result.data.delivery,
+          type: result.data.category,
+          language : result.data.lang,
+          jokePart: jokePart
+        });
+      }
     }
   } catch (error) {
     console.error("Failed to make request:", error.message);

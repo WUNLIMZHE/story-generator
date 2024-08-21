@@ -37,7 +37,7 @@ h1 {
 .form {
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr 1fr 80px;
+  grid-template-columns: 1fr 0.8fr 1fr 80px;
   grid-column-gap: 10px;
 }
 .form-submit {
@@ -54,7 +54,7 @@ h1 {
   box-shadow: 0 0 0 0.5px rgb(153, 153, 153);
 }
 
-.card {
+.card{
   background: url("../images/joke.png");
   background-size: cover;
   background-position: center;
@@ -73,13 +73,13 @@ h1 {
   font-family: "Gloria Hallelujah", cursive;
 }
 
-.card:hover {
+.card:hover, #left-card:hover {
   /*color: rgb(88 199 250 / 100%);*/
   color:#eb7c0a;
   transition: color 1s;
 }
 .card:hover:before,
-.card:hover:after {
+.card:hover:after, #left-card:hover:before, #left-card:hover:after {
   animation: none;
   opacity: 0;
 }
@@ -102,7 +102,7 @@ h1 {
   animation: spin 2.5s linear infinite;
 }
 
-.card::after {
+.card::after{
   position: absolute;
   content: "";
   top: calc(var(--card-height) / 6);
@@ -137,6 +137,25 @@ h1 {
   100% {
     --rotate: 360deg;
   }
+}
+
+#left-card{
+  background: url("../images/joke-1.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: var(--card-width);
+  height: var(--card-height);
+  padding: 3px;
+  position: relative;
+  border-radius: 6px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  display: flex;
+  font-size: 1.5em;
+  color: rgb(88 199 250 / 0%);
+  font-family: "Gloria Hallelujah", cursive;
 }
 
 .content {
@@ -186,5 +205,10 @@ a {
   color: #f5ba13;
   font-size: 18px;
   font-family: "Titan One", cursive;
+  
+}
+
+.joke-container{
+  display: flex;
   
 }
