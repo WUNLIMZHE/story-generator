@@ -1,3 +1,9 @@
+# JokeSearch API
+
+About this application
+-------------------------------------------------------
+Developed a web application that interacts with JokeAPI using Axios to make HTTP requests, returning random jokes based on user preferences with filtering capabilities.
+
 Running the program
 -------------------------------------------------------
 Clone this repo:
