@@ -2,8 +2,8 @@ Running the program
 -------------------------------------------------------
 Clone this repo:
 ```
-git clone https://github.com/WUNLIMZHE/thriftbook.git
-cd thriftbook
+git clone [https://github.com/WUNLIMZHE/Capstone-Project---Use-a-Public-API.git]
+cd Capstone-Project---Use-a-Public-API.git
 ```
 **Running with Node** <br/>
 1. Make sure you have Node.JS installed.<br/>
