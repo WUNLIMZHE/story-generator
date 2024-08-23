@@ -59,7 +59,7 @@ app.post("/", async (req, res) => {
       console.log("No joke found");
       res.render("index.ejs", { 
         joke: result.data.message,
-        type: result.data.category,
+        type: type,
         language : languages,
         jokePart: jokePart
       });
