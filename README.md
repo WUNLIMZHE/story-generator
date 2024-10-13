@@ -1,16 +1,15 @@
-<<<<<<< HEAD
-# JokeSearch API
+# Story Generator Application
 
 About this application
 -------------------------------------------------------
-Developed a web application that interacts with JokeAPI using Axios to make HTTP requests, returning random jokes based on user preferences with filtering capabilities.
+Developed a web application that integrates with the Gemini API, specifically utilizing Google's Generative AI service, to generate stories based on user preferences with advanced filtering capabilities. The generated story is then processed using the OpenAI Text-to-Speech API, converting it into an audio format that narrates the story.
 
 Running the program
 -------------------------------------------------------
 Clone this repo:
 ```
-git clone [https://github.com/WUNLIMZHE/Capstone-Project---Use-a-Public-API.git]
-cd Capstone-Project---Use-a-Public-API
+git clone [https://github.com/WUNLIMZHE/story-generator.git]
+cd story-generator
 ```
 **Running with Node** <br/>
 1. Make sure you have Node.JS installed.<br/>
@@ -33,6 +32,4 @@ node index.js
 ```
 http://localhost:3000
 ```
-=======
-"# story-generator" 
->>>>>>> 787125d (first commit)
+
