@@ -1,9 +1,19 @@
 <head>
   <link rel="stylesheet" type="text/css" href="styles/footer.css">
 </head>
-<footer>
-  <% let date = new Date(); %>
-  <% year = date.getFullYear() %>
-  <p>© <%= year %>, WUN LIM ZHE</p>
-  <p>App created with <a href="https://sv443.net/jokeapi/v2/" target="_blank">Joke API (v2.3.2)</a></p>
+
+
+ <!-- Site footer -->
+ <footer class="site-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-sm-6 col-xs-12">
+        <% let date = new Date(); %>
+        <% year = date.getFullYear() %>
+        <p class="copyright-text">Copyright &copy; <%= year %> All Rights Reserved by 
+     <a href="#">Wun Lim Zhe</a>.
+        </p>
+      </div>
+    </div>
+  </div>
 </footer>

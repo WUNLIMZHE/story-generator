@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # JokeSearch API
 
 About this application
@@ -32,3 +33,6 @@ node index.js
 ```
 http://localhost:3000
 ```
+=======
+"# story-generator" 
+>>>>>>> 787125d (first commit)
